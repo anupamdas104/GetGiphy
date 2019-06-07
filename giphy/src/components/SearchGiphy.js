@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import GifCard from "./GifCard"
 import axios from 'axios';
 
-let APILINK = "https://api.giphy.com/v1/gifs/search?api_key="
-let APIKEY = "IKONAOgWbMX8AVNjI8H9R5xheLew0UXd"
-let ACTION = "&q="
-let EXTRA = "&limit=25&offset=0&rating=G&lang=en"
+let APILINK = "https://api.giphy.com/v1/gifs/search?api_key=";
+let APIKEY = "IKONAOgWbMX8AVNjI8H9R5xheLew0UXd";
+let ACTION = "&q=";
+let EXTRA = "&limit=25&offset=0&rating=G&lang=en";
 
 class SearchGiphy extends Component {
   constructor(){
@@ -37,8 +37,8 @@ class SearchGiphy extends Component {
   render(){
     let gifData = this.state.data.map((gif)=>
     <div>
-        <img src={gif.url_embed}></img>
-        {/* <div> {gif.url} </div> */}
+        <img src={gif.images.fixed_width.url}></img>
+        <div> {gif.url} </div>
     </div>
     )
   return (
@@ -52,7 +52,7 @@ class SearchGiphy extends Component {
       <div>{gifData}</div>
 
       <div>
-        <GifCard gifs={this.state.data}/>
+        {/* <GifCard gifs={this.state.data}/> */}
     </div>
     </div>
   );
